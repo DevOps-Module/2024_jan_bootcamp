@@ -1,0 +1,40 @@
+#Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mike-app
+  labels:
+    app: mike-app
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: mike-app
+ template:
+   metadata:
+     labels:
+       app: mike-app
+   spec:
+     containers:
+     - name: coach-con
+       image: mobanntechnologies/jan24:060224_0700
+       ports:
+       - containerPort: 8080
+
+---
+#Service Type nodePort
+apiVersion: v1
+kind: Service
+metadata:
+  name: mike-app
+  labels:
+    app: mike-app
+spec:
+  selector:
+    app: mike-app
+  type: NodePort
+  ports:
+  - nodePort: 31111
+    port: 8080
+    targetPort: 8080
+
