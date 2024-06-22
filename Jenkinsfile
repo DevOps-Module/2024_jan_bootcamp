@@ -12,15 +12,15 @@ pipeline {
         }
       }
 	  
-	 // stage ('Build')  {
-	  //    steps {
-          //  dir('webapp'){
-          //  sh "pwd"
-         //   sh "ls -lah"
-         //   sh "mvn package"
-        //  }
-     //   }   
-    //  }
+	  stage ('Build')  {
+	      steps {
+            dir('webapp'){
+            sh "pwd"
+            sh "ls -lah"
+            sh "mvn package"
+          }
+        }   
+     }
    
      stage ('SonarQube Analysis') {
         steps {
