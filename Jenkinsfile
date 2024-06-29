@@ -115,7 +115,7 @@ pipeline {
     stage('Deploy Artifacts to Production') {
             
             steps {
-                  sshagent(['ssh_key']) {
+                  sshagent(['ssh_agent']) {
                         //sh "ssh -i mo-london-kp.pem -o StrictHostKeyChecking=no ubuntu@18.168.61.213 -C \"kubectl set image deployment/ranty customcontainer=mobanntechnologies/july-set:${BUILD_NUMBER}\""
                         //sh "ssh -i mo-london-kp.pem -o StrictHostKeyChecking=no ubuntu@18.168.61.213 -C \"kubectl delete deployment ranty && kubectl delete service ranty\""
                         sh "ssh -i mo-london-kp.pem -o StrictHostKeyChecking=no ubuntu@18.168.61.213 -C \"kubectl apply -f deploy.yml\""
