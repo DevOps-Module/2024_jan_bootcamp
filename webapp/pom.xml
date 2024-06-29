@@ -27,7 +27,7 @@
               <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
         <configuration>
-		<webXml>/home/ubuntu/project-a/jan24/webapp/src/main/webapp/WEB-INF\web.xml</webXml>
+		<webXml>/home/ubuntu/git-project/jan24/webapp/src/main/webapp/WEB-INF\web.xml</webXml>
             </configuration>
       </plugin>
 
