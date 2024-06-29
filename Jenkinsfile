@@ -91,7 +91,7 @@ pipeline {
     stage('Build Container Image') {
             
             steps {
-                  sshagent(['ssh_key']) {
+                  sshagent(['ssh_agent']) {
                         sh "ssh -i mo-london-kp.pem -o StrictHostKeyChecking=no ubuntu@13.42.174.151 -C \"ansible-playbook -vvv -e build_number=${BUILD_NUMBER} push-2-dockerhub.yml\""       
                     }
                 }
@@ -100,7 +100,7 @@ pipeline {
     stage('Copy Deployment & Service Defination to K8s Master') {
             
             steps {
-                  sshagent(['ssh_key']) {
+                  sshagent(['ssh_agent']) {
                         sh "scp -i mo-london-kp.pem -o StrictHostKeyChecking=no deploy.yml ubuntu@18.168.61.213:/home/ubuntu"
                         }
                 }
