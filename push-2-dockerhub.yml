@@ -32,7 +32,7 @@
 
   - name: Build image and with build args
     docker_image:
-      name: mobanntechnologies/july-set
+      name: mobanntechnologies/jan24
       repository: mobanntechnologies/jan24:{{build_number}}
       build:
         path: /home/ubuntu
