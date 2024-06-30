@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mike-app
+  name: jide-app
   labels:
-    app: mike-app
+    app: jide-app
 spec:
  replicas: 3
  selector:
    matchLabels:
-     app: mike-app
+     app: jide-app
  template:
    metadata:
      labels:
-       app: mike-app
+       app: jide-app
    spec:
      containers:
      - name: coach-con
-       image: mobanntechnologies/jan24:latest
+       image: mobanntechnologies/jan24:{{build_number}}
        ports:
        - containerPort: 8080
 
@@ -26,15 +26,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mike-app
+  name: jide-app
   labels:
-    app: mike-app
+    app: jide-app
 spec:
   selector:
-    app: mike-app
+    app: jide-app
   type: NodePort
   ports:
-  - nodePort: 31111
+  - nodePort: 32005
     port: 8080
     targetPort: 8080
 
