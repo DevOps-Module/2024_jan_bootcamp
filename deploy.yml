@@ -17,7 +17,7 @@ spec:
    spec:
      containers:
      - name: coach-con
-       image: mobanntechnologies/jan24:060224_0700
+       image: mobanntechnologies/jan24:latest
        ports:
        - containerPort: 8080
 
